@@ -10,6 +10,7 @@ public class GetByIdResponse
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
+    public decimal Price { get; set; }
     public DateTime DateCreated { get; set; }
     public string CreatedByUser { get; set; } = string.Empty;
 }
@@ -27,6 +28,6 @@ public class GetById(ProductsDbContext dbContext) : Endpoint<GetByIdRequest, Get
     {
         var product = await _dbContext.Products.FirstOrDefaultAsync(p => p.Id == req.Id, ct);
         if (product is null) { await Send.NotFoundAsync(ct); return; }
-        Response = new GetByIdResponse { Id = product.Id, Name = product.Name, Description = product.Description, DateCreated = product.DateCreated, CreatedByUser = product.CreatedByUser };
+        Response = new GetByIdResponse { Id = product.Id, Name = product.Name, Description = product.Description, Price = product.Price, DateCreated = product.DateCreated, CreatedByUser = product.CreatedByUser };
     }
 }

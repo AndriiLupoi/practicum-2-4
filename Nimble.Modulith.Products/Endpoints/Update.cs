@@ -4,8 +4,20 @@ using Nimble.Modulith.Products.Data;
 
 namespace Nimble.Modulith.Products.Endpoints;
 
-public class UpdateProductRequest { public int Id { get; set; } public string Name { get; set; } = string.Empty; public string Description { get; set; } = string.Empty; }
-public class UpdateProductResponse { public int Id { get; set; } public string Name { get; set; } = string.Empty; public string Description { get; set; } = string.Empty; public DateTime DateCreated { get; set; } public string CreatedByUser { get; set; } = string.Empty; }
+public class UpdateProductRequest { 
+    public int Id { get; set; } 
+    public string Name { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public decimal Price { get; set; }
+}
+public class UpdateProductResponse { 
+    public int Id { get; set; } 
+    public string Name { get; set; } = string.Empty; 
+    public string Description { get; set; } = string.Empty;
+    public decimal Price { get; set; }
+    public DateTime DateCreated { get; set; } 
+    public string CreatedByUser { get; set; } = string.Empty; 
+}
 
 public class Update(ProductsDbContext dbContext) : Endpoint<UpdateProductRequest, UpdateProductResponse>
 {
@@ -24,6 +36,6 @@ public class Update(ProductsDbContext dbContext) : Endpoint<UpdateProductRequest
         product.Name = req.Name;
         product.Description = req.Description;
         await _dbContext.SaveChangesAsync(ct);
-        Response = new UpdateProductResponse { Id = product.Id, Name = product.Name, Description = product.Description, DateCreated = product.DateCreated, CreatedByUser = product.CreatedByUser };
+        Response = new UpdateProductResponse { Id = product.Id, Name = product.Name, Description = product.Description, Price = product.Price, DateCreated = product.DateCreated, CreatedByUser = product.CreatedByUser };
     }
 }
