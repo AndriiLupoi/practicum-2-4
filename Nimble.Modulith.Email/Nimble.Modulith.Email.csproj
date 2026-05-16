@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" />
+    <PackageReference Include="Mediator.Abstractions" />
+    <PackageReference Include="Serilog.AspNetCore" />
+  </ItemGroup>
+	
+	
+<ItemGroup>
+  <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  <ProjectReference Include="..\Nimble.Modulith.Email.Contracts\Nimble.Modulith.Email.Contracts.csproj" />
+</ItemGroup>
+	
+
+</Project>
