@@ -23,6 +23,7 @@
     <ProjectReference Include="..\Nimble.Modulith.Products\Nimble.Modulith.Products.csproj" />
     <ProjectReference Include="..\Nimble.Modulith.Customers\Nimble.Modulith.Customers.csproj" />
     <ProjectReference Include="..\Nimble.Modulith.Email\Nimble.Modulith.Email.csproj" />
+    <ProjectReference Include="..\Nimble.Modulith.Reporting\Nimble.Modulith.Reporting.csproj" />
   </ItemGroup>
 
 </Project>

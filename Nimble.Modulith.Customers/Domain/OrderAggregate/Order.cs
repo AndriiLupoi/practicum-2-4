@@ -16,6 +16,8 @@ public class Order : EntityBase
     public void AddItem(OrderItem item)
     {
         ArgumentNullException.ThrowIfNull(item);
+        if (Status != OrderStatus.Pending)
+            throw new InvalidOperationException($"Cannot add items to order with status {Status}");
         var existingItem = _items.FirstOrDefault(i => i.ProductId == item.ProductId);
         if (existingItem != null)
             existingItem.Quantity += item.Quantity;
@@ -26,6 +28,8 @@ public class Order : EntityBase
     public void RemoveItem(OrderItem item)
     {
         ArgumentNullException.ThrowIfNull(item);
+        if (Status != OrderStatus.Pending)
+            throw new InvalidOperationException($"Cannot remove items from order with status {Status}");
         _items.Remove(item);
     }
 }

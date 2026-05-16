@@ -22,4 +22,7 @@
   </Folder>
   <Project Path="Nimble.Modulith.Email.Contracts/Nimble.Modulith.Email.Contracts.csproj" />
   <Project Path="Nimble.Modulith.Email/Nimble.Modulith.Email.csproj" />
+  <Folder Name="/Reporting Module/">
+    <Project Path="Nimble.Modulith.Reporting/Nimble.Modulith.Reporting.csproj" />
+  </Folder>
 </Solution>
